@@ -2,7 +2,6 @@ import {
   defineConfig,
   presetAttributify,
   presetIcons,
-  presetTypography,
   presetUno,
   presetWebFonts,
   transformerDirectives,
@@ -21,10 +20,9 @@ export default defineConfig({
       scale: 1.2,
       warn: true,
     }),
-    presetTypography(),
     presetWebFonts({
       fonts: {
-        sans: 'DM Sans',
+        sans: 'Inter:400,600,800',
         serif: 'DM Serif Display',
         mono: 'DM Mono',
       },
@@ -34,5 +32,5 @@ export default defineConfig({
     transformerDirectives(),
     transformerVariantGroup(),
   ],
-  safelist: 'prose prose-sm m-auto text-left'.split(' '),
+  safelist: 'prose m-auto text-left'.split(' '),
 })

@@ -1,10 +1,10 @@
-import path from 'path'
+import { resolve } from 'path'
+import fs from 'fs-extra'
 import { defineConfig } from 'vite'
 import Preview from 'vite-plugin-vue-component-preview'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
 import generateSitemap from 'vite-ssg-sitemap'
-import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Markdown from 'vite-plugin-vue-markdown'
@@ -14,11 +14,16 @@ import Inspect from 'vite-plugin-inspect'
 import LinkAttributes from 'markdown-it-link-attributes'
 import Unocss from 'unocss/vite'
 import Shiki from 'markdown-it-shiki'
+// @ts-expect-error missing types
+import TOC from 'markdown-it-table-of-contents'
+import matter from 'gray-matter'
+import anchor from 'markdown-it-anchor'
+import { slugify } from './scripts/slugify'
 
 export default defineConfig({
   resolve: {
     alias: {
-      '~/': `${path.resolve(__dirname, 'src')}/`,
+      '~/': `${resolve(__dirname, 'src')}/`,
     },
   },
 
@@ -33,10 +38,19 @@ export default defineConfig({
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
       extensions: ['vue', 'md'],
-    }),
+      pagesDir: 'pages',
+      extendRoute(route) {
+        const path = resolve(__dirname, route.component.slice(1))
 
-    // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
-    Layouts(),
+        if (!path.includes('projects.md')) {
+          const md = fs.readFileSync(path, 'utf-8')
+          const { data } = matter(md)
+          route.meta = Object.assign(route.meta || {}, { frontmatter: data })
+        }
+
+        return route
+      },
+    }),
 
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
@@ -72,8 +86,12 @@ export default defineConfig({
     // https://github.com/antfu/vite-plugin-vue-markdown
     // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
     Markdown({
-      wrapperClasses: 'prose prose-sm m-auto text-left',
+      wrapperComponent: 'post',
+      wrapperClasses: 'prose m-auto text-left',
       headEnabled: true,
+      // markdownItOptions: {
+      //   quotes: '""\'\'',
+      // },
       markdownItSetup(md) {
         // https://prismjs.com/
         md.use(Shiki, {
@@ -82,12 +100,23 @@ export default defineConfig({
             dark: 'vitesse-dark',
           },
         })
+        md.use(anchor, {
+          slugify,
+          permalink: anchor.permalink.linkInsideHeader({
+            symbol: '#',
+            renderAttrs: () => ({ 'aria-hidden': 'true' }),
+          }),
+        })
         md.use(LinkAttributes, {
           matcher: (link: string) => /^https?:\/\//.test(link),
           attrs: {
             target: '_blank',
             rel: 'noopener',
           },
+        })
+        md.use(TOC, {
+          includeLevel: [1, 2, 3],
+          slugify,
         })
       },
     }),
@@ -125,7 +154,7 @@ export default defineConfig({
     VueI18n({
       runtimeOnly: true,
       compositionOnly: true,
-      include: [path.resolve(__dirname, 'locales/**')],
+      include: [resolve(__dirname, 'locales/**')],
     }),
 
     // https://github.com/antfu/vite-plugin-inspect
