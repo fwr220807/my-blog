@@ -6,6 +6,8 @@ It is a pleasure to meet you here, my friend from afar. First of all, I have to 
 
 I'm Wren Fan, a front-end programmer currently learning JS, TS, Vue, etc.
 
+I grew up curious about all sorts of things. I took apart and assembled desktop computers and laptops, learned guitar, ukulele, taijiquan, shuttlecock, and in computing, I learnt pascal in secondary school, fortran and C in university, and Java after graduating from university.
+
 Although it's a bit late for the Internet industry, there's a saying that "the best time to plant a tree is ten years ago, followed by now"
 
 Maybe the seeds were planted and I grew up with a newfound interest in things and a desire to figure them out.
