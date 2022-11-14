@@ -65,7 +65,6 @@ export default defineConfig({
       dts: 'src/auto-imports.d.ts',
       dirs: [
         'src/composables',
-        'src/store',
       ],
       vueTemplate: true,
     }),
@@ -89,9 +88,9 @@ export default defineConfig({
       wrapperComponent: 'post',
       wrapperClasses: 'prose m-auto text-left',
       headEnabled: true,
-      // markdownItOptions: {
-      //   quotes: '""\'\'',
-      // },
+      markdownItOptions: {
+        quotes: '""\'\'',
+      },
       markdownItSetup(md) {
         // https://prismjs.com/
         md.use(Shiki, {
@@ -163,13 +162,13 @@ export default defineConfig({
   ],
 
   // https://github.com/vitest-dev/vitest
-  test: {
-    include: ['test/**/*.test.ts'],
-    environment: 'jsdom',
-    deps: {
-      inline: ['@vue', '@vueuse', 'vue-demi'],
-    },
-  },
+  // test: {
+  //   include: ['test/**/*.test.ts'],
+  //   environment: 'jsdom',
+  //   deps: {
+  //     inline: ['@vue', '@vueuse', 'vue-demi'],
+  //   },
+  // },
 
   // https://github.com/antfu/vite-ssg
   ssgOptions: {

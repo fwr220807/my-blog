@@ -1,5 +1,5 @@
 <template>
-  <header z-40 h-20 mx-auto max-w-7xl px-10 flex items-center justify-between>
+  <header class="header" z-40 h-20 mx-auto max-w-7xl px-10 flex items-center justify-between>
     <router-link select-none to="/">
       <svg
         w-5 h-5 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -50,3 +50,22 @@
     </nav>
   </header>
 </template>
+
+<style scoped>
+.header {
+  color: var(--fg);
+}
+.nav a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+  opacity: 0.6;
+  outline: none;
+}
+
+.nav a:hover {
+  opacity: 1;
+  text-decoration-color: inherit;
+}
+</style>
