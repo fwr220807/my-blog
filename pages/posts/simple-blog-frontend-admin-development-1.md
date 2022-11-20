@@ -8,8 +8,10 @@ duration: 20min
 
 [[TOC]]
 
-最近开始着手准备 simple blog 的后台网站，[这是项目地址](https://github.com/fwr220807/simple-blog-frontend-admin)。技术栈选择上，决定使用 Vite + Vue3 + TypeScript + Element-plus + unocss 。去 github 搜刮了一圈起手模板，比较心水 PanjiaChen 的 [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin) 项目。不过技术上并不是最新的，那就从零开始搭建吧！参考着这个项目，再用自己的技术栈去实现，挺酷的，不是吗？
+最近开始着手准备 simple blog 的后台网站，[这是项目地址](https://github.com/fwr220807/simple-blog-frontend-admin)。技术栈选择上，决定使用 Vite + Vue3 + TypeScript + Element-plus + unocss 。去 github 搜刮了一圈起手模板，比较心水 PanjiaChen 的 [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin) 项目。不过技术上并不是最新的，那就从零开始搭建吧！用自己的技术栈去实现，挺酷的。
+
 废话不多说，那就开始吧！
+
 ## 初始化项目
 首先要着手初始化项目，安装各种包并配置好相关配置。
 ### Vite

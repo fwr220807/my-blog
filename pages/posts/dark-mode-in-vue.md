@@ -79,12 +79,6 @@ html.dark {
 	--bg-color: #252525;
 	--font-color: #c9d1d9;
 }
-/* 黑暗模式下的 markdown 样式 */
-html.dark .markdown-body {
-  --bg-color: #252525;
-	--font-color: #c9d1d9;
-  ...
-}
 ```
 
 响应式数据的实现逻辑：
@@ -225,7 +219,42 @@ const changeTheme = function () {
 </style>
 ```
 
+在需要单独设立的文章组件中，引入themes 仓库并初始化 markdown 的主题样式，注意该样式文件的黑暗主题也需要写成对应的类名选择器，比如容器的类名是 `.markdown-body`，则需要暗黑主题的颜色样式写成 `.markdown-body.dark {...}` 。
+
+```html
+<!-- @/pages/Article/index.vue -->
+<template>
+	<div v-html="md" class="markdown-body" ref="markdown"></div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+// 引入主题仓库
+import { useThemesStore } from '@/store/themes'
+// md 为具有 html 结构的文本
+const md = ref('')
+// 获取 dom
+const markdown = ref(null)
+// 仓库
+const ThemesStore = useThemesStore()
+// 挂载后才能获取 dom
+onMounted(() => {
+	// 初始添加主题样式
+	ThemesStore.initThemeCSS(markdown.value)
+	// 监听仓库中的 currentTheme 值，通过它改变 markdown 主题
+	ThemesStore.$subscribe(({ events }) => {
+		markdown.value.classList.remove(events.oldValue)
+		markdown.value.classList.add(events.newValue)
+	})
+})
+</script>
+
+<style scoped>
+</style>
+```
+
 ## 结尾
+
 这个主题样式的切换实现，可以很好体现出 Vue 中以数据驱动视图的思想。这个思路做不仅可以将数据变化的逻辑与视图分离出来，达到一个解耦的效果，而且后期去调整切换主题切换的逻辑，或者想拓展出更多的颜色主题，也可以很方便的实现。
 
 考虑到这个主题切换功能比较常用，所以后期我也会对它进行封装并精简代码，提高代码复用率。
