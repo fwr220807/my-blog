@@ -3,7 +3,7 @@ title: 博客后台开发日记之一（项目初始化）
 date: 2022-11-17T08:00:00.000+00:00
 lang: zh
 type: blog
-duration: 20min
+duration: 15min
 ---
 
 [[TOC]]
@@ -23,7 +23,7 @@ pnpm create vite simple-blog-frontend-admin --template vue-ts
 配置别名 alias，即把 src/ 的别名设置为 @/ ，方便写组件路径，在 vite.config.ts 配置
 ```ts
 // vite.config.ts
-import { resolve } form 'path'
+import { resolve } from 'path'
 
 export default defineConfig({
   // 添加别名 @
@@ -66,11 +66,11 @@ pnpm install vue-router
 ```
 创建 @/router/index.ts
 ```ts
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router'
 // 利用 createRouter 工厂函数创建路由实例并暴露出去
 export const router = createRouter({
-    history: createWebHashHistory(),
-    routes: [...] // 后面再补
+  history: createWebHashHistory(),
+  routes: [] // 后面再补
 })
 ```
 在 main.ts 配置
@@ -105,7 +105,7 @@ export default defineConfig({
 })
 ```
 在 tsconfig.ts 配置，配合 vscode 插件 Volar 获取全局组件类型
-```ts
+```json
 // tsconfig.json
 {
   "compilerOptions": {

@@ -1,5 +1,5 @@
 ---
-title: VUE-对主题切换逻辑封装
+title: VUE-关于颜色主题切换逻辑的封装
 date: 2022-11-21T08:00:00.000+00:00
 lang: zh
 type: blog
@@ -7,7 +7,6 @@ duration: 10min
 ---
 
 [[toc]]
-
 
 回顾 <router-link to="/posts/dark-mode-in-vue">VUE-深色主题的实现思路</router-link> 。本篇将对主题切换的逻辑进行封装和**连结**的封装思想的实践。
 ## 1. 优化
