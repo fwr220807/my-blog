@@ -1,5 +1,5 @@
 ---
-title: VUE-关于颜色主题切换逻辑的封装
+title: VUE 关于颜色主题切换逻辑的封装
 date: 2022-11-21T08:00:00.000+00:00
 lang: zh
 type: blog
@@ -105,4 +105,5 @@ export const useDark = function (): Ref<string> {
 ```
 ## 3. 结语
 受益于 Vue3 Composistion API ，与原生 API 进行连结的思想，可有效的减少对原生 API 的直接使用，并且连结也扩大了封装的可用性，比如 `useStorage()` ，不仅可在 `useDark()` 中使用，还可以用在其他需要的代码中使用。
+
 最后，上述代码我也整理好了，欢迎去我的 [github](https://github.com/fwr220807/demo/tree/main/Package-vue-dark-mode-code) star 、下载、调试。

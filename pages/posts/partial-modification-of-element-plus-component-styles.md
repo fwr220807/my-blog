@@ -6,8 +6,10 @@ type: blog
 duration: 12min
 ---
 
+[[toc]]
+
 在使用 element-plus 过程中，其自带默认样式已经足够好看，但在开发特定页面如登陆等页面时，就会遇到需要对该页面的 element-plus 组件样式调整的需求，但是随后会发现使用 `<style scoped>` 的时候会导致子组件内部的样式无法修改。本篇就以上需求，从原理上讲述 `<style scoped>` 和在使用 `<style scoped>` 的情况下，如何局部修改 element-plus 组件样式。注意，本篇着重讲的是局部修改 style 样式，如果想全局修改样式，可参考 element-plus 的[官方文档](https://element-plus.org/zh-CN/guide/theming.html)。
-##  1. `<style scoped>`
+##  1. style scoped 标签
 在 Vue 组件的 `<style>` 标签带有 `scoped` arrtibute 时，它的 CSS 只会影响当前组件的元素，这样做的好处是可以使得样式不污染到子组件。其中**原理是通过给每个元素标签添加一个动态属性，然后在选择器的最后一位元素附加属性**，使得父组件的样式不会渗透到子组件中，不过，**子组件的根节点**还是会被父组件的作用域样式所影响。[引用 Vue 的官方文档的描述](https://cn.vuejs.org/api/sfc-css-features.html#scoped-css)，这样设计是为了让父组件可以从布局的角度出发，调整其子组件根元素的样式。
 ```vue
 <template>
@@ -82,7 +84,7 @@ duration: 12min
 </style>
 ```
 
-## 2. 使用 `:deep()` 伪选择器
+## 2. 使用 :deep() 伪选择器
 在使用 `<style scoped>` 时，使用 `:deep()` 伪类选择器，可以选择对所选择的元素进行处理，以下用法均有效，
 ```vue
 <style scoped>
@@ -156,4 +158,4 @@ duration: 12min
 ## 3. 结语
 相信大家理解了 `<style scoped>` 和 `:deep()` 的原理，就不难掌握，在使用 `<style scoped>` 的情况下对子组件内部样式修改的操作；毕竟使用时 element-plus 本质上就是 Vue 组件，只要是 Vue 组件，就可以用 `:deep()` 方法去修改子组件的内部样式。
 
-上述相关代码，老规矩，我也整理成一个可以让它跑起来小 demo 项目，欢迎去我的 [github](https://github.com/fwr220807/demo/tree/main/Vue-dark-theme-switching-idea) 下载，调试，提交问题。
+上述相关代码，老规矩，我也整理成一个可以让它跑起来小 demo 项目，欢迎去我的 [github](https://github.com/fwr220807/demo/tree/main/Partial-modification-of-element-plus-component-styles) 下载，调试，提交问题。
