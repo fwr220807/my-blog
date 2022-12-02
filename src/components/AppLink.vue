@@ -11,7 +11,7 @@ const isExternalLink = computed(() => typeof props.to === 'string' && props.to.s
 
 <template>
   <!-- 这这里的 $attrs 为传入的样式 -->
-  <div>
+  <div class="item block font-400 mb-6 mt-2 no-underline">
     <a v-if="isExternalLink" v-bind="$attrs" :href="to" target="_blank">
       <slot />
     </a>
