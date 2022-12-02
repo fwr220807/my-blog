@@ -11,6 +11,14 @@
   margin-top: 1.2em;
   margin-bottom: 1.2em;
 }
+
+a.item {
+  transition: .2s all ease-out;
+  text-decoration: none;
+  border-bottom: none !important;
+  opacity: .6;
+}
+
 .prose a {
   color: var(--fg-deeper);
   text-decoration: none;
