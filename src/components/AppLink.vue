@@ -11,10 +11,12 @@ const isExternalLink = computed(() => typeof props.to === 'string' && props.to.s
 
 <template>
   <!-- 这这里的 $attrs 为传入的样式 -->
-  <a v-if="isExternalLink" v-bind="$attrs" :href="to" target="_blank">
-    <slot />
-  </a>
-  <router-link v-else v-bind="$props">
-    <slot />
-  </router-link>
+  <div>
+    <a v-if="isExternalLink" v-bind="$attrs" :href="to" target="_blank">
+      <slot />
+    </a>
+    <router-link v-else v-bind="$props">
+      <slot />
+    </router-link>
+  </div>
 </template>
