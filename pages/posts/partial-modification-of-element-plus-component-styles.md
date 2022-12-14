@@ -1,12 +1,12 @@
 ---
-title: VUE 如何在 <style scoped> 下修改组件内部样式(element-plus)
+title: Vue 如何在 <style scoped> 下修改组件内部样式(element-plus)
 date: 2022-11-27T08:00:00.000+00:00
 lang: zh
 type: blog
 duration: 12min
 ---
 
-[[toc]]
+[[TOC]]
 
 在使用 element-plus 过程中，其自带默认样式已经足够好看，但在开发特定页面如登陆等页面时，就会遇到需要对该页面的 element-plus 组件样式调整的需求，但是随后会发现使用 `<style scoped>` 的时候会导致子组件内部的样式无法修改。本篇就以上需求，从原理上讲述 `<style scoped>` 和在使用 `<style scoped>` 的情况下，如何局部修改 element-plus 组件样式。注意，本篇着重讲的是局部修改 style 样式，如果想全局修改样式，可参考 element-plus 的[官方文档](https://element-plus.org/zh-CN/guide/theming.html)。
 ##  1. style scoped 标签
@@ -159,3 +159,13 @@ duration: 12min
 相信大家理解了 `<style scoped>` 和 `:deep()` 的原理，就不难掌握，在使用 `<style scoped>` 的情况下对子组件内部样式修改的操作；毕竟使用时 element-plus 本质上就是 Vue 组件，只要是 Vue 组件，就可以用 `:deep()` 方法去修改子组件的内部样式。
 
 上述相关代码，老规矩，我也整理成一个可以让它跑起来小 demo 项目，欢迎去我的 [github](https://github.com/fwr220807/demo/tree/main/Partial-modification-of-element-plus-component-styles) 下载，调试，提交问题。
+
+## PS：版本控制
+```json
+{
+  "dependencies": {
+    "element-plus": "^2.2.25",
+    "vue": "^3.2.41"
+  }
+}
+```

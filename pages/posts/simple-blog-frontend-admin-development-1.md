@@ -3,7 +3,7 @@ title: 博客后台开发日记之一(项目初始化)
 date: 2022-11-17T08:00:00.000+00:00
 lang: zh
 type: blog
-duration: 15min
+duration: 12min
 ---
 
 [[TOC]]
@@ -178,4 +178,30 @@ pnpm install eslint @antfu/eslint-config -D
 // end_of_line = lf
 // insert_final_newline = true
 // trim_trailing_whitespace = true
+```
+
+## PS：版本控制
+```json
+{
+  "dependencies": {
+    "@unocss/reset": "^0.46.5",
+    "axios": "^1.1.3",
+    "element-plus": "^2.2.21",
+    "pinia": "^2.0.24",
+    "vue": "^3.2.41",
+    "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.31.0",
+    "@iconify/json": "^2.1.142",
+    "@types/node": "^18.11.9",
+    "@vitejs/plugin-vue": "^3.2.0",
+    "typescript": "^4.6.4",
+    "unocss": "^0.46.5",
+    "unplugin-auto-import": "^0.11.4",
+    "unplugin-vue-components": "^0.22.9",
+    "vite": "^3.2.3",
+    "vue-tsc": "^1.0.9"
+  }
+}
 ```

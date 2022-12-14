@@ -78,3 +78,13 @@ router.beforeEach(async(to, from, next) => {
 该仓库文件，有用户整体的 `routes` 路由和筛选后的动态路由 `dynamicRoutes` 数据，并且有生成 `dynamicRoutes` 的方法。
 ## 5. 结尾
 借助上面的 API，就可以控制用户登陆前后的转跳页面，使得用户登陆后，只能浏览有权限的页面面，从而达到路由权限管理的目的。最后，我觉得算是比较清晰地阐述权限管理这个概念实现的思路了，希望也对你有帮助！欢迎通过 [email](mailto:fwr583251832@outlook.com) 和 [github](https://github.com/fwr220807) 和我讨论交流～
+## PS：版本控制
+```json
+{
+  "dependencies": {
+    "pinia": "^2.0.24",
+    "vue": "^3.2.41",
+    "vue-router": "^4.1.6"
+  }
+}
+```

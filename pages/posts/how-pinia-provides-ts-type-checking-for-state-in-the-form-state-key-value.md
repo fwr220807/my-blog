@@ -121,3 +121,19 @@ export const useSettingsStore = defineStore('settings', {
 这个办法提供了为 `state` 提供 `state[key] = value` 形式的 ts 类型检查，但是它并不完美，比如 `value` 值无法准确到为每个 `key` 都提供类型检查，`value` 只能提供 `state` 类型键值的集合类型 `string | boolean`，即 `changeSetting('theme', false)` 并不报错，但实际上 `theme` 是 `string` 类型的，这个目前我还没找到什么好的方法去实现。
 ## 5. 结语
 看到这里，如果你有更好的办法解决上面的一个不完善情况，欢迎通过 [email](mailto:fwr583251832@outlook.com) 和 [github](https://github.com/fwr220807) 和我讨论交流～
+
+## PS：版本控制
+```json
+{
+  "dependencies": {
+    "vue": "^3.2.41",
+    "pinia": "^2.0.23"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.2.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3",
+    "vue-tsc": "^1.0.9"
+  }
+}
+```

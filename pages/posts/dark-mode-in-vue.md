@@ -1,12 +1,12 @@
 ---
-title: VUE 深色主题的实现思路
+title: Vue 深色主题的实现思路
 date: 2022-11-08T08:00:00.000+00:00
 lang: zh
 type: blog
 duration: 10min
 ---
 
-[[toc]]
+[[TOC]]
 
 在个人博客的搭建过程中，有一个切换夜间模式主题的需求，网上搜寻过相关资料过后，有些零散，故做一篇相对完整的教程，记录下在 Vue 中实现主题样式的切换。
 ## 1. 预备知识
@@ -260,3 +260,13 @@ onMounted(() => {
 考虑到这个主题切换功能比较常用，所以后期我也会对它进行封装并精简代码，提高代码复用率。
 
 上述代码我也整理成一个可以让它跑起来小 demo 项目，欢迎去我的 [github](https://github.com/fwr220807/demo/tree/main/Vue-dark-theme-switching-idea) 下载，调试更多的细节。
+
+## PS：版本控制
+```json
+{
+  "dependencies": {
+    "pinia": "^2.0.23",
+    "vue": "^3.2.41"
+  }
+}
+```

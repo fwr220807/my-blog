@@ -28,3 +28,17 @@ export default defineConfig({
   },
 })
 ```
+
+## PS：版本控制
+
+```json
+{
+  "dependencies": {
+    "vue": "^3.2.41",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "vite": "^3.2.3"
+  }
+}
+```

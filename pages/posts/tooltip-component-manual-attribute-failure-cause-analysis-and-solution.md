@@ -6,7 +6,7 @@ type: blog
 duration: 18min
 ---
 
-[[toc]]
+[[TOC]]
 
 我在开发博客后台管理系统时，有个需求需要做一个文字提示，当用户输入密码是大写的字母时，会显示提示，反之则不显示。对于这个需求使用的是 Element Plus 的 Tooltip 文字提示组件，默认是 `hover` 时会显示提示，就需要对其显示的默认行为进行调整。[参考官方文档](https://element-plus.org/zh-CN/component/tooltip.html#%E5%B1%9E%E6%80%A7)，组件提供了 `v-model:visible` 属性可以直接操作提示显示与隐藏，默认值为 false，提供的 manual 属性则是设置是否手动控制 Tooltip。 如果设置为 `true`，则 `mouseenter` 和 `mouseleave` 将不会生效，默认值为 false。那么问题来了，我在使用 `manual` 属性时，发现其并不能阻止提示的默认显示行为。
 ## 1. 失效原因
@@ -158,3 +158,13 @@ const onKeydown = composeEventHandlers(
 至此，终于弄清前因后果，最后也达到需求的效果了，还算是个不错的问题吧。
 
 本人水平有限，说的不对还请多多见谅，如果有任何的想法或者发现错误，欢迎 send [email](mailto:fwr583251832@outlook.com) 或者在 [github](https://github.com/fwr220807) 一起深入交流～
+
+## PS：版本控制
+```json
+{
+  "dependencies": {
+    "element-plus": "^2.2.25",
+    "vue": "^3.2.41"
+  }
+}
+```
