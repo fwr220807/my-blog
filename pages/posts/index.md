@@ -1,8 +1,8 @@
 ---
-title: Blogs - Wren Fan
+title: Blog - Wren Fan
 display: ''
 ---
 
 <SubNav />
 
-<PostList type="blog"/>
+<PostsList type='blog' />

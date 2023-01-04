@@ -25,8 +25,8 @@ const routes: Post[] = router.getRoutes()
     date: i.meta.frontmatter.date,
     lang: i.meta.frontmatter.lang,
     duration: i.meta.frontmatter.duration,
-    recording: i.meta.frontmatter.recording,
-    upcoming: i.meta.frontmatter.upcoming,
+    // recording: i.meta.frontmatter.recording,
+    // upcoming: i.meta.frontmatter.upcoming,
   }))
 
 // 对 props.posts 或者 routes 进行对应的选择

@@ -13,6 +13,7 @@ declare module '@vue/runtime-core' {
     Header: typeof import('./components/Header.vue')['default']
     Post: typeof import('./components/Post.vue')['default']
     PostList: typeof import('./components/PostList.vue')['default']
+    PostsList: typeof import('./components/PostsList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SubNav: typeof import('./components/SubNav.vue')['default']
