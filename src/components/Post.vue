@@ -14,13 +14,13 @@ const route = useRoute()
 // 根据 verification 值判断是否需要验证，防君子不防小人的验证方式
 if (route.meta.frontmatter.verification) {
   // 查询是否存储过关键字的 md5 码
-  let keyword = localStorage.getItem('keyword')
+  let keyword = window.window.localStorage.getItem('keyword')
 
   if (keyword) {
     // 存储过，直接进行判断
     if (md5(keyword) !== '5c87cfebe06d9d9695994bc840ab2fb2') {
       router.back()
-      localStorage.removeItem('keyword')
+      window.localStorage.removeItem('keyword')
       alert('本地存储错误，请重新点击页面输入关键字！')
     }
   }
@@ -35,8 +35,8 @@ if (route.meta.frontmatter.verification) {
         alert('输入错误')
       }
       else {
-        // 验证通过，将关键字存储到 localStorage 中，就不用每次打开都需要输入了
-        localStorage.setItem('keyword', keyword)
+        // 验证通过，将关键字存储到 window.localStorage 中，就不用每次打开都需要输入了
+        window.localStorage.setItem('keyword', keyword)
       }
     }
   }
