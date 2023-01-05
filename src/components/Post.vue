@@ -12,7 +12,7 @@ const { frontmatter } = defineProps({
 const router = useRouter()
 const route = useRoute()
 // 根据 verification 值判断是否需要验证，防君子不防小人的验证方式
-if (route.meta.frontmatter.verification) {
+if (window && route.meta.frontmatter.verification) {
   // 查询是否存储过关键字的 md5 码
   const keyword = useStorage('keyword', '')
 
