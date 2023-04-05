@@ -8,8 +8,8 @@ const inactiveStyle = 'opacity-20 hover:opacity-50'
     <router-link to="/posts" class="!border-none !font-400" decoration-none :class="route.path === '/posts' ? '' : inactiveStyle">
       Blog
     </router-link>
-    <router-link to="/life" class="!border-none !font-400" decoration-none :class="route.path === '/life' ? '' : inactiveStyle">
-      Life
+    <router-link to="/diary" class="!border-none !font-400" decoration-none :class="route.path === '/diary' ? '' : inactiveStyle">
+      Diary
     </router-link>
   </div>
 </template>

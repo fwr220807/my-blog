@@ -24,6 +24,9 @@
           />
         </svg>
       </router-link>
+      <router-link lt-md:hidden select-none to="/diary">
+        <span>Diary</span>
+      </router-link>
       <!-- <a select-none href="/404">
         <span lt-md:hidden>Projects</span>
         <svg

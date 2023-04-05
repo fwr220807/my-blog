@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import md5 from 'md5'
 import { formatDate } from '~/logics'
 
 const { frontmatter } = defineProps({
@@ -12,35 +11,35 @@ const { frontmatter } = defineProps({
 const router = useRouter()
 const route = useRoute()
 // 根据 verification 值判断是否需要验证，防君子不防小人的验证方式
-if (route.meta.frontmatter.verification) {
-  // 查询是否存储过关键字的 md5 码
-  const keyword = useStorage('keyword', '')
+// if (route.meta.frontmatter.verification) {
+//   // 查询是否存储过关键字的 md5 码
+//   const keyword = useStorage('keyword', '')
 
-  if (keyword.value) {
-    // 存储过，直接进行判断
-    if (md5(keyword.value) !== '5c87cfebe06d9d9695994bc840ab2fb2') {
-      router.back()
-      keyword.value = null
-      alert('本地存储错误，请重新点击页面输入关键字！')
-    }
-  }
-  else {
-    // 没有存储过，则提示使用者输入关键字并获取
-    const input = prompt('请输入我的姓名以获取本篇文章内容：')
-    if (!input) { router.back() }
-    else {
-      // 使用关键字的 md5 码，进行判断
-      if (md5(input) !== '5c87cfebe06d9d9695994bc840ab2fb2') {
-        router.back()
-        alert('输入错误')
-      }
-      else {
-        // 验证通过，将关键字存储到 window.localStorage 中，就不用每次打开都需要输入了
-        keyword.value = input
-      }
-    }
-  }
-}
+//   if (keyword.value) {
+//     // 存储过，直接进行判断
+//     if (md5(keyword.value) !== '5c87cfebe06d9d9695994bc840ab2fb2') {
+//       router.back()
+//       keyword.value = null
+//       alert('本地存储错误，请重新点击页面输入关键字！')
+//     }
+//   }
+//   else {
+//     // 没有存储过，则提示使用者输入关键字并获取
+//     const input = prompt('请输入我的姓名以获取本篇文章内容：')
+//     if (!input) { router.back() }
+//     else {
+//       // 使用关键字的 md5 码，进行判断
+//       if (md5(input) !== '5c87cfebe06d9d9695994bc840ab2fb2') {
+//         router.back()
+//         alert('输入错误')
+//       }
+//       else {
+//         // 验证通过，将关键字存储到 window.localStorage 中，就不用每次打开都需要输入了
+//         keyword.value = input
+//       }
+//     }
+//   }
+// }
 
 const content = ref<HTMLDivElement>()
 
