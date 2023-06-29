@@ -11,5 +11,8 @@ const inactiveStyle = 'opacity-20 hover:opacity-50'
     <router-link to="/diary" class="!border-none !font-400" decoration-none :class="route.path === '/diary' ? '' : inactiveStyle">
       Diary
     </router-link>
+    <router-link to="/algorithm" class="!border-none !font-400" decoration-none :class="route.path === '/algorithm' ? '' : inactiveStyle">
+      Algo
+    </router-link>
   </div>
 </template>
